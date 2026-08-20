@@ -1,0 +1,14 @@
+2026-08-20 14:18:04.811 [main] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-20 14:19:44.574 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-20 14:23:14.812 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-20 14:30:47.389 [main-1] ERROR com.wyy.App - 数据库操作失败
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
+	at java.sql.DriverManager.getConnection(DriverManager.java:664)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at com.wyy.App.main(App.java:27)
