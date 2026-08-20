@@ -12,3 +12,7 @@ java.sql.SQLException: Access denied for user 'root'@'localhost' (using password
 	at java.sql.DriverManager.getConnection(DriverManager.java:664)
 	at java.sql.DriverManager.getConnection(DriverManager.java:247)
 	at com.wyy.App.main(App.java:27)
+2026-08-20 16:54:55.510 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-20 16:54:55.685 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-20 16:54:55.686 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-20 16:54:55.706 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}

@@ -5,7 +5,8 @@ import java.sql.Date;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class weekConfig {
+
+public class WeekConfig {
 
     private static final DateTimeFormatter DATETIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
@@ -21,9 +22,12 @@ public class weekConfig {
         return id;
     }
 
-    public void setId(int id) {
+
+    public int setId(int id) {
         this.id = id;
+        return 1;
     }
+
 
     public int getYear() {
         return year;
