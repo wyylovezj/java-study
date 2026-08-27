@@ -1,18 +1,14 @@
-2026-08-20 14:18:04.811 [main] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
-2026-08-20 14:19:44.574 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
-2026-08-20 14:23:14.812 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
-2026-08-20 14:30:47.389 [main-1] ERROR com.wyy.App - 数据库操作失败
-java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:130)
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
-	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
-	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:446)
-	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:239)
-	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:188)
-	at java.sql.DriverManager.getConnection(DriverManager.java:664)
-	at java.sql.DriverManager.getConnection(DriverManager.java:247)
-	at com.wyy.App.main(App.java:27)
-2026-08-20 16:54:55.510 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-20 16:54:55.685 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-20 16:54:55.686 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
-2026-08-20 16:54:55.706 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-26 21:12:36.637 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-26 21:12:36.876 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-26 21:12:36.876 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-26 21:15:16.109 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-26 21:15:16.309 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-26 21:15:16.310 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-26 21:17:58.369 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-26 21:17:58.599 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-26 21:17:58.599 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-26 21:17:58.629 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-26 21:18:08.656 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-26 21:18:08.886 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-26 21:18:08.886 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-26 21:18:08.913 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}

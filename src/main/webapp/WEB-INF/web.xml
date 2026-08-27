@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>java-jdbc</display-name>
+    <!-- ========== Filter 过滤器 ========== -->
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.wyy.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ========== Servlet 映射 ========== -->
+    <!-- 周配置 API -->
+    <servlet>
+        <servlet-name>WeekConfigServlet</servlet-name>
+        <servlet-class>com.wyy.servlet.WeekConfigServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WeekConfigServlet</servlet-name>
+        <url-pattern>/getWeekConfig</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- ========== Session 超时时间（分钟） ========== -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
+    <!-- ========== 欢迎页面（前端入口） ========== -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+</web-app>

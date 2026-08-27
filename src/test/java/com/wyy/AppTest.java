@@ -1,38 +1,39 @@
 package com.wyy;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import com.wyy.pojo.WeekConfig;
+import com.wyy.utils.DbUtils;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
-    }
+public class AppTest {
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
+    private static final Logger log = LoggerFactory.getLogger(AppTest.class);
 
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    public void testQueryWeekConfig() throws Exception {
+        String sql = "select * from week_config";
+        WeekConfig weekConfig = new WeekConfig();
+        try (Connection conn = DbUtils.getConnection();
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
+            if (rs.next()) {
+                weekConfig.setId(rs.getInt("id"));
+                weekConfig.setYear(rs.getInt("year"));
+                weekConfig.setWeekNum(rs.getInt("week_num"));
+                weekConfig.setStartDate(rs.getDate("start_date"));
+                weekConfig.setEndDate(rs.getDate("end_date"));
+                weekConfig.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
+                weekConfig.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+            }
+            log.info("Query result: {}", weekConfig);
+        }
     }
 }

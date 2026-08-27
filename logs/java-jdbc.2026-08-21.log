@@ -1,0 +1,29 @@
+2026-08-21 11:13:54.706 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-21 11:13:54.884 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-21 11:13:54.884 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:13:54.902 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:22:45.643 [http-bio-8080-exec-1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-21 11:22:45.798 [http-bio-8080-exec-1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-21 11:22:45.798 [http-bio-8080-exec-1-31] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:22:45.813 [http-bio-8080-exec-1-31] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:22:50.918 [http-bio-8080-exec-3-36] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:22:50.920 [http-bio-8080-exec-3-36] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:22:55.802 [http-bio-8080-exec-5-38] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:22:55.805 [http-bio-8080-exec-5-38] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:31:37.714 [http-bio-8080-exec-1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-21 11:31:37.842 [http-bio-8080-exec-1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-21 11:31:37.842 [http-bio-8080-exec-1-31] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:31:37.954 [http-bio-8080-exec-1-31] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:31:44.454 [http-bio-8080-exec-3-36] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:31:44.457 [http-bio-8080-exec-3-36] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:34:02.373 [http-bio-8080-exec-1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-21 11:34:02.501 [http-bio-8080-exec-1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-21 11:34:02.502 [http-bio-8080-exec-1-31] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:34:02.614 [http-bio-8080-exec-1-31] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 11:35:17.744 [http-bio-8080-exec-6-39] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 11:35:17.747 [http-bio-8080-exec-6-39] INFO  com.wyy.servlet.WeekConfigServlet - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 13:55:12.971 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-21 13:55:13.134 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-21 13:55:13.134 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-21 13:55:13.155 [main-1] INFO  com.wyy.App - 查询结果: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-21 19:55:35.873 [http-nio-8080-exec-6-34] INFO  com.wyy.servlet.WeekConfigServlet - username: 张三
