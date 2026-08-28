@@ -1,6 +1,5 @@
 package com.wyy.utils;
 
-import com.wyy.App;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
@@ -12,6 +11,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DbUtils {
+
     private static final Logger logger = LoggerFactory.getLogger(DbUtils.class);
     private static final HikariDataSource dataSource;
 

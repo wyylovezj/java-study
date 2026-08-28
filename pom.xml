@@ -57,7 +57,8 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>java-jdbc</finalName>  <!-- 最终 war 包名称 -->
+    <!-- 最终 war 包名称 -->
+    <finalName>java-jdbc</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

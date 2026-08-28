@@ -7,25 +7,26 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
+@WebServlet("/getWeekConfig")
 public class WeekConfigServlet extends HttpServlet {
+
     private static final Logger logger = LoggerFactory.getLogger(WeekConfigServlet.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sql = "select * from week_config";
         WeekConfig weekConfig = new WeekConfig();
         try (Connection conn = DbUtils.getConnection();
-             Statement stmt = conn.createStatement();
-             ResultSet rs = stmt.executeQuery(sql);) {
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery();) {
             if (rs.next()) {
                 weekConfig.setId(rs.getInt("id"));
                 weekConfig.setYear(rs.getInt("year"));
