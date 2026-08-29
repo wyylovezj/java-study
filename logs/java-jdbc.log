@@ -4571,3 +4571,6 @@
 2026-08-28 23:06:07.710 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 1
 2026-08-28 23:06:07.710 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
 2026-08-28 23:06:07.710 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-28 23:07:32.937 [localhost-startStop-2-58] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
+2026-08-28 23:07:32.937 [localhost-startStop-2-58] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
+2026-08-28 23:07:32.938 [localhost-startStop-2-58] INFO  com.wyy.filter.LogFilter - LogFilter destroy
