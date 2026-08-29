@@ -3,8 +3,8 @@
 
     <!-- 注册自定义转换器：%tid 输出线程编号 -->
     <conversionRule conversionWord="tid" converterClass="com.wyy.logback.ThreadIdConverter"/>
-    <!-- 日志目录：改为项目固定绝对路径，避免受 Tomcat 工作目录影响 -->
-    <property name="LOG_HOME" value="C:/Users/74712/Desktop/java-jdbc/logs"/>
+    <!-- 日志目录：基于用户家目录（JVM 内置系统属性 user.home），不同电脑自动适配 -->
+    <property name="LOG_HOME" value="${user.home}/Desktop/java-jdbc/logs"/>
     <!-- 控制台输出 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
