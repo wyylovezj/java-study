@@ -7,50 +7,60 @@
 
     <!-- 显示名称，没有任何意义 -->
     <display-name>java-jdbc</display-name>
-    <!-- ========== Filter 过滤器 ========== -->
-    <!-- ========== 1. EncodingFilter（最先执行，确保后续都能拿到正确编码） ========== -->
-    <!--    <filter>-->
-    <!--        <filter-name>encodingFilter</filter-name>-->
-    <!--        <filter-class>com.wyy.filter.EncodingFilter</filter-class>-->
-    <!--        &lt;!&ndash; 给 Filter 传初始化参数，指定编码，参数都是字符串，filter中拿到后需要强转 &ndash;&gt;-->
-    <!--        <init-param>-->
-    <!--            <param-name>encoding</param-name>-->
-    <!--            <param-value>UTF-8</param-value>-->
-    <!--        </init-param>-->
-    <!--    </filter>-->
-    <!--    <filter-mapping>-->
-    <!--        <filter-name>encodingFilter</filter-name>-->
-    <!--        <url-pattern>/*</url-pattern>-->
-    <!--    </filter-mapping>-->
+    <!-- ========== Filter 过滤器（web.xml 声明顺序即执行顺序） ========== -->
+    <!-- ========== 1. ExceptionFilter（最先执行：全局异常兜底，捕获后续 Filter 与 Servlet 的所有未处理异常） ========== -->
+    <filter>
+        <filter-name>exceptionFilter</filter-name>
+        <filter-class>com.wyy.filter.ExceptionFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>exceptionFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-    <!-- ========== 2. AuthFilter（第二执行，鉴权通过后才进入 Servlet） ========== -->
-    <!--    <filter>-->
-    <!--        <filter-name>authFilter</filter-name>-->
-    <!--        <filter-class>com.wyy.filter.AuthFilter</filter-class>-->
-    <!--        <init-param>-->
-    <!--            <param-name>loginPage</param-name>-->
-    <!--            <param-value>/login.jsp</param-value>-->
-    <!--        </init-param>-->
-    <!--        &lt;!&ndash; /login 为登录接口，必须放行，否则登录请求会被 AuthFilter 拦截重定向，永远无法登录 &ndash;&gt;-->
-    <!--        <init-param>-->
-    <!--            <param-name>excludePaths</param-name>-->
-    <!--            <param-value>/login.jsp,/login,/css/,/js/,/images/</param-value>-->
-    <!--        </init-param>-->
-    <!--    </filter>-->
-    <!--    <filter-mapping>-->
-    <!--        <filter-name>authFilter</filter-name>-->
-    <!--        <url-pattern>/*</url-pattern>-->
-    <!--    </filter-mapping>-->
+    <!-- ========== 2. LogFilter（第二执行：记录请求信息与耗时，finally 保证异常时日志对称） ========== -->
+    <filter>
+        <filter-name>logFilter</filter-name>
+        <filter-class>com.wyy.filter.LogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>logFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
-    <!-- ========== 3. LogFilter（最后执行，记录原始请求信息） ========== -->
-    <!--    <filter>-->
-    <!--        <filter-name>logFilter</filter-name>-->
-    <!--        <filter-class>com.wyy.filter.LogFilter</filter-class>-->
-    <!--    </filter>-->
-    <!--    <filter-mapping>-->
-    <!--        <filter-name>logFilter</filter-name>-->
-    <!--        <url-pattern>/*</url-pattern>-->
-    <!--    </filter-mapping>-->
+    <!-- ========== 3. EncodingFilter（第三执行，确保后续都能拿到正确编码） ========== -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>com.wyy.filter.EncodingFilter</filter-class>
+        <!-- 给 Filter 传初始化参数，指定编码，参数都是字符串，filter中拿到后需要强转 -->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- ========== 4. AuthFilter（最后执行，鉴权通过后才进入 Servlet） ========== -->
+    <filter>
+        <filter-name>authFilter</filter-name>
+        <filter-class>com.wyy.filter.AuthFilter</filter-class>
+        <init-param>
+            <param-name>loginPage</param-name>
+            <param-value>/login.jsp</param-value>
+        </init-param>
+        <!-- /login 为登录接口，必须放行，否则登录请求会被 AuthFilter 拦截重定向，永远无法登录 -->
+        <init-param>
+            <param-name>excludePaths</param-name>
+            <param-value>/login.jsp,/login,/css/,/js/,/images/</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>authFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <!-- ========== 初始化连接池的 Servlet  ========== -->
     <servlet>
@@ -90,5 +100,19 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+
+    <!-- ========== 错误页配置：404/500/未捕获异常统一跳转友好错误页，不向用户暴露堆栈 ========== -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error.jsp</location>
+    </error-page>
 
 </web-app>

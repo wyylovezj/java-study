@@ -33,27 +33,43 @@ public class WeekConfigServlet extends HttpServlet {
                 weekConfig.setWeekNum(rs.getInt("week_num"));
                 weekConfig.setStartDate(rs.getDate("start_date"));
                 weekConfig.setEndDate(rs.getDate("end_date"));
-                weekConfig.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
-                weekConfig.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+                // created_time/updated_time 可能为 NULL，判空避免自动拆箱 NPE
+                Timestamp createdTime = rs.getTimestamp("created_time");
+                if (createdTime != null) {
+                    weekConfig.setCreatedTime(createdTime.toLocalDateTime());
+                }
+                Timestamp updatedTime = rs.getTimestamp("updated_time");
+                if (updatedTime != null) {
+                    weekConfig.setUpdatedTime(updatedTime.toLocalDateTime());
+                }
+            } else {
+                logger.warn("week_config 表无数据");
             }
-            PrintWriter out = resp.getWriter();
+            // 必须先设置响应编码再获取 Writer，否则中文乱码
             resp.setContentType("application/json;charset=UTF-8");
+            PrintWriter out = resp.getWriter();
             out.print(JSON.toJSONString(weekConfig));
             logger.info("查询结果: {}", weekConfig);
-        }
-        catch (SQLException e) {
-            logger.error("数据库操作失败", e);
+        } catch (SQLException e) {
+            // 记录完整堆栈后向上抛出，由 ExceptionFilter 统一返回错误响应，绝不静默吞异常
+            logger.error("WeekConfigServlet 数据库查询失败", e);
+            throw new ServletException("查询周配置失败", e);
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
+        if (username == null || username.trim().isEmpty()) {
+            logger.warn("WeekConfigServlet 缺少参数 username");
+            resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            resp.setContentType("application/json;charset=UTF-8");
+            resp.getWriter().write("{\"code\":400,\"message\":\"参数 username 不能为空\"}");
+            return;
+        }
         logger.info("username: {}", username);
-        System.out.printf("username:%s", username);
-        PrintWriter out = resp.getWriter();
         resp.setContentType("application/json;charset=UTF-8");
+        PrintWriter out = resp.getWriter();
         out.print(username);
-
     }
 }

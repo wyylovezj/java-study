@@ -4,18 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-@WebFilter(
-        filterName = "logFilter",
-        urlPatterns = "/*"
-)
 public class LogFilter implements Filter {
 
     private static Logger logger = LoggerFactory.getLogger(LogFilter.class);
@@ -36,9 +31,14 @@ public class LogFilter implements Filter {
         long startTime = System.currentTimeMillis();
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         logger.info("[LogFilter]: before chain: {} {} {} {}", timestamp, ip, method, uri);
-        chain.doFilter(request, response);
-        long endTime = System.currentTimeMillis();
-        logger.info("[LogFilter]: after chain: duration {}", endTime - startTime);
+        try {
+            chain.doFilter(request, response);
+        } finally {
+            // finally 保证异常路径也输出对称的 after 日志，并记录响应状态码，便于全链路排查
+            long endTime = System.currentTimeMillis();
+            int status = ((HttpServletResponse) response).getStatus();
+            logger.info("[LogFilter]: after chain: duration {}ms, status {}", endTime - startTime, status);
+        }
     }
 
     @Override

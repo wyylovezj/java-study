@@ -4,8 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -18,14 +16,6 @@ import java.io.IOException;
  * 放行登录页面、静态资源等公共路径
  */
 
-@WebFilter(
-        filterName = "authFilter",
-        urlPatterns = "/*",
-        initParams = {
-            @WebInitParam(name = "loginPage", value = "/login.jsp"),
-            @WebInitParam(name = "excludePaths", value = "/login.jsp,/css/*,/js/*,/images/*")
-        }
-)
 public class AuthFilter implements Filter {
     private static final Logger logger = LoggerFactory.getLogger(AuthFilter.class);
     private String loginPage;       // 登录页面路径

@@ -65,8 +65,9 @@ public class LoginServlet extends HttpServlet {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.error("LoginServlet 登录查询异常", e);
-            throw new RuntimeException(e);
+            // 数据库异常：记录完整堆栈后重定向到登录页并提示系统繁忙，不向用户暴露异常细节
+            LOGGER.error("LoginServlet 登录查询数据库异常, username: {}", username, e);
+            resp.sendRedirect(req.getContextPath() + "/login.jsp?error=db");
         }
     }
 }

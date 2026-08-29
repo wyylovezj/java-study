@@ -1,15 +1,11 @@
 package com.wyy.filter;
 
-import com.wyy.servlet.WeekConfigServlet;
-import jdk.nashorn.internal.runtime.logging.DebugLogger;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 
 /**
  * EncodingFilter
@@ -19,11 +15,6 @@ import java.io.UnsupportedEncodingException;
  * @date 2023/07/07
  */
 
-@WebFilter(
-        filterName = "encodingFilter",
-        urlPatterns = "/*",
-        initParams = {@WebInitParam(name = "encoding", value = "UTF-8")}
-        )
 public class EncodingFilter implements Filter {
 
     private static final Logger logger = LoggerFactory.getLogger(EncodingFilter.class);
