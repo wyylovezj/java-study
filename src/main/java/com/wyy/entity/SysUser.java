@@ -1,4 +1,4 @@
-package com.wyy.pojo;
+package com.wyy.entity;
 
 public class SysUser {
 

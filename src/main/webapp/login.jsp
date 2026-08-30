@@ -72,11 +72,10 @@
     <h2>用户登录</h2>
 
     <%-- LoginServlet 校验失败会重定向回本页并携带 error 参数：
-         empty=参数为空  pwd=密码错误  noUser=用户不存在  db=系统异常 --%>
+         empty=参数为空  wrong=用户名或密码错误  db=系统异常 --%>
     <p class="error" ${empty param.error ? 'style="display:none"' : ''}>
         ${param.error == 'empty' ? '用户名和密码不能为空'
-            : param.error == 'noUser' ? '用户不存在，请检查用户名'
-            : param.error == 'pwd' ? '密码错误，请重新输入'
+            : param.error == 'wrong' ? '用户名或密码错误，请重新输入'
             : param.error == 'db' ? '系统繁忙，请稍后重试'
             : '登录失败，请重试'}
     </p>

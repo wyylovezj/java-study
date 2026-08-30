@@ -1,6 +1,6 @@
 package com.wyy;
 
-import com.wyy.pojo.WeekConfig;
+import com.wyy.entity.WeekConfig;
 import com.wyy.utils.DbUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -30,8 +30,7 @@ public class AppTest {
                 weekConfig.setWeekNum(rs.getInt("week_num"));
                 weekConfig.setStartDate(rs.getDate("start_date"));
                 weekConfig.setEndDate(rs.getDate("end_date"));
-                weekConfig.setCreatedTime(rs.getTimestamp("created_time").toLocalDateTime());
-                weekConfig.setUpdatedTime(rs.getTimestamp("updated_time").toLocalDateTime());
+                // created_time/updated_time 已从实体中移除，不再封装
             }
             log.info("Query result: {}", weekConfig);
         }

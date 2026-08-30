@@ -1,4 +1,4 @@
-package com.wyy.pojo;
+package com.wyy.entity;
 
 
 import java.sql.Date;
@@ -15,8 +15,7 @@ public class WeekConfig {
     private int weekNum;
     private Date startDate;
     private Date endDate;
-    private LocalDateTime createdTime;
-    private LocalDateTime updatedTime;
+
 
     public int getId() {
         return id;
@@ -60,22 +59,6 @@ public class WeekConfig {
         this.endDate = endDate;
     }
 
-    public LocalDateTime getCreatedTime() {
-        return createdTime;
-    }
-
-    public void setCreatedTime(LocalDateTime createdTime) {
-        this.createdTime = createdTime;
-    }
-
-    public LocalDateTime getUpdatedTime() {
-        return updatedTime;
-    }
-
-    public void setUpdatedTime(LocalDateTime updatedTime) {
-        this.updatedTime = updatedTime;
-    }
-
     @Override
     public String toString() {
         return "weekConfig{" +
@@ -84,8 +67,6 @@ public class WeekConfig {
                 ", weekNum=" + weekNum +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
-                ", createdTime=" + (createdTime == null ? "null" : createdTime.format(DATETIME_FORMATTER)) +
-                ", updatedTime=" + (updatedTime == null ? "null" : updatedTime.format(DATETIME_FORMATTER)) +
                 '}';
     }
 }

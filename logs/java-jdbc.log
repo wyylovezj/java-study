@@ -1,27 +1,273 @@
-2026-08-29 18:06:34.218 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-29 18:06:34.380 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-29 18:06:34.381 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
-2026-08-29 18:06:34.398 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
-2026-08-29 18:06:46.904 [RMI TCP Connection(2)-127.0.0.1-31] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
-2026-08-29 18:06:46.909 [RMI TCP Connection(2)-127.0.0.1-31] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
-2026-08-29 18:06:46.909 [RMI TCP Connection(2)-127.0.0.1-31] INFO  com.wyy.filter.LogFilter - LogFilter init
-2026-08-29 18:06:46.923 [RMI TCP Connection(2)-127.0.0.1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-08-29 18:06:47.164 [RMI TCP Connection(2)-127.0.0.1-31] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-29 18:06:47.164 [RMI TCP Connection(2)-127.0.0.1-31] INFO  com.wyy.servlet.InitServlet - InitServlet 初始化完成，连接池已就绪
-2026-08-29 18:06:47.639 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
-2026-08-29 18:06:47.639 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
-2026-08-29 18:06:47.639 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
-2026-08-29 18:06:47.643 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-29 18:06:47 127.0.0.1 GET /java-jdbc/login.jsp
-2026-08-29 18:06:47.955 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 316
-2026-08-29 18:06:47.956 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
-2026-08-29 18:06:47.956 [http-nio-8080-exec-1-32] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
-2026-08-29 18:06:48.273 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
-2026-08-29 18:06:48.274 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
-2026-08-29 18:06:48.274 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
-2026-08-29 18:06:48.274 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-29 18:06:48 0:0:0:0:0:0:0:1 GET /java-jdbc/login.jsp
-2026-08-29 18:06:48.275 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 1
-2026-08-29 18:06:48.275 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
-2026-08-29 18:06:48.276 [http-nio-8080-exec-6-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
-2026-08-29 18:06:55.711 [localhost-startStop-1-55] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
-2026-08-29 18:06:55.711 [localhost-startStop-1-55] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
-2026-08-29 18:06:55.711 [localhost-startStop-1-55] INFO  com.wyy.filter.LogFilter - LogFilter destroy
+2026-08-30 11:16:55.917 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-30 11:16:56.063 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-30 11:16:56.063 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-30 11:16:56.088 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-30 11:17:08.657 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-30 11:17:08.881 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-30 11:17:08.881 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
+2026-08-30 11:17:08.883 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
+2026-08-30 11:17:08.883 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
+2026-08-30 11:17:08.884 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] init
+2026-08-30 11:17:08.884 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.LogFilter - LogFilter init
+2026-08-30 11:17:58.366 [localhost-startStop-2-57] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
+2026-08-30 11:17:58.367 [localhost-startStop-2-57] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
+2026-08-30 11:17:58.367 [localhost-startStop-2-57] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] destroy
+2026-08-30 11:17:58.367 [localhost-startStop-2-57] INFO  com.wyy.filter.LogFilter - LogFilter destroy
+2026-08-30 11:18:02.868 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-30 11:18:03.077 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-30 11:18:03.077 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
+2026-08-30 11:18:03.079 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
+2026-08-30 11:18:03.079 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
+2026-08-30 11:18:03.080 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] init
+2026-08-30 11:18:03.080 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.wyy.filter.LogFilter - LogFilter init
+2026-08-30 11:19:37.073 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-30 11:19:37.197 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-30 11:19:37.197 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-30 11:19:37.211 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-30 11:19:43.157 [localhost-startStop-2-58] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
+2026-08-30 11:19:43.157 [localhost-startStop-2-58] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
+2026-08-30 11:19:43.157 [localhost-startStop-2-58] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] destroy
+2026-08-30 11:19:43.158 [localhost-startStop-2-58] INFO  com.wyy.filter.LogFilter - LogFilter destroy
+2026-08-30 11:19:47.351 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-08-30 11:19:47.562 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-08-30 11:19:47.562 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
+2026-08-30 11:19:47.564 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
+2026-08-30 11:19:47.564 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
+2026-08-30 11:19:47.564 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] init
+2026-08-30 11:19:47.564 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.wyy.filter.LogFilter - LogFilter init
+2026-08-30 11:19:47.709 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 11:19:47 127.0.0.1 GET /java-jdbc/login.jsp
+2026-08-30 11:19:47.710 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 11:19:47.710 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
+2026-08-30 11:19:47.710 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
+2026-08-30 11:19:48.006 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-30 11:19:48.007 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 11:19:48.007 [http-nio-8080-exec-1-29] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 301ms, status 200
+2026-08-30 11:19:48.350 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 11:19:48 0:0:0:0:0:0:0:1 GET /java-jdbc/login.jsp
+2026-08-30 11:19:48.351 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 11:19:48.351 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
+2026-08-30 11:19:48.351 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
+2026-08-30 11:19:48.352 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-30 11:19:48.352 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 11:19:48.352 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
+2026-08-30 11:32:32.472 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 11:32:32.617 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 11:32:32.617 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 11:32:32.631 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
+2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
+2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
+2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] destroy
+2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter destroy
+2026-08-30 14:34:28.010 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 14:34:28.145 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 14:34:28.145 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 14:34:28.161 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10}
+2026-08-30 14:34:37.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 14:34:38.056 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] init
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter init
+2026-08-30 15:24:09.701 [rbac-pool housekeeper-108] WARN  com.zaxxer.hikari.pool.HikariPool - rbac-pool - Thread starvation or clock leap detected (housekeeper delta=5m881ms577µs799ns).
+2026-08-30 15:24:22.385 [HikariPool-1 housekeeper-51] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m879ms845µs701ns).
+2026-08-30 15:46:48.959 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 15:46:49.131 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 15:46:49.131 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 15:46:49.151 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10}
+2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
+2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
+2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] destroy
+2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter destroy
+2026-08-30 15:46:53.606 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
+2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
+2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
+2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] init
+2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter init
+2026-08-30 16:46:40.886 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 16:46:41.075 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 16:46:41.075 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 16:46:41.093 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10}
+2026-08-30 16:46:44.581 [localhost-startStop-3-201] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
+2026-08-30 16:46:44.582 [localhost-startStop-3-201] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
+2026-08-30 16:46:44.582 [localhost-startStop-3-201] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] destroy
+2026-08-30 16:46:44.582 [localhost-startStop-3-201] INFO  com.wyy.filter.LogFilter - LogFilter destroy
+2026-08-30 16:46:55.232 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
+2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
+2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
+2026-08-30 16:46:55.552 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
+2026-08-30 16:46:55.552 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
+2026-08-30 16:46:55.553 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.filter.ExceptionFilter - [ExceptionFilter] init
+2026-08-30 16:46:55.553 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.filter.LogFilter - LogFilter init
+2026-08-30 16:46:55.727 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/login.jsp 127.0.0.1
+2026-08-30 16:46:55.740 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:46:55 127.0.0.1 GET /java-jdbc/login.jsp
+2026-08-30 16:46:55.741 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:46:55.741 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
+2026-08-30 16:46:55.741 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
+2026-08-30 16:46:56.154 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.SessionListener - [SessionListener] 会话创建, sessionId: DC0509550DD36C65065D1FBA0A60402B, 当前在线人数: 1
+2026-08-30 16:46:56.180 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-30 16:46:56.181 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:46:56.181 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 445ms, status 200
+2026-08-30 16:46:56.186 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/login.jsp 耗时 459ms, 累计 1 次, 上一秒 QPS 1
+2026-08-30 16:46:56.573 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/login.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:46:56.579 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:46:56 0:0:0:0:0:0:0:1 GET /java-jdbc/login.jsp
+2026-08-30 16:46:56.580 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:46:56.580 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
+2026-08-30 16:46:56.581 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
+2026-08-30 16:46:56.581 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.SessionListener - [SessionListener] 会话创建, sessionId: 4025A94E713C625772FAB5F8A2AAF6B3, 当前在线人数: 2
+2026-08-30 16:46:56.582 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-30 16:46:56.582 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:46:56.582 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 3ms, status 200
+2026-08-30 16:46:56.582 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/login.jsp 耗时 9ms, 累计 2 次, 上一秒 QPS 1
+2026-08-30 16:47:02.115 [http-nio-8080-exec-2-34] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: POST /java-jdbc/login 0:0:0:0:0:0:0:1
+2026-08-30 16:47:02.172 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:47:02 0:0:0:0:0:0:0:1 POST /java-jdbc/login
+2026-08-30 16:47:02.172 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:47:02.172 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login
+2026-08-30 16:47:02.172 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login
+2026-08-30 16:47:02.351 [http-nio-8080-exec-2-34] INFO  com.wyy.listener.SessionListener - [SessionListener] 用户登录, SysUser{id=1, username='weiyangyang', password='***'}, 当前登录人数: 1
+2026-08-30 16:47:02.352 [http-nio-8080-exec-2-34] INFO  com.wyy.controller.LoginServlet - LoginServlet 登录成功, userId: 1, username: weiyangyang
+2026-08-30 16:47:02.352 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login
+2026-08-30 16:47:02.352 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:47:02.353 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 181ms, status 302
+2026-08-30 16:47:02.354 [http-nio-8080-exec-2-34] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: POST /java-jdbc/login 耗时 240ms, 累计 3 次, 上一秒 QPS 0
+2026-08-30 16:47:02.359 [http-nio-8080-exec-6-38] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:47:02.360 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:47:02 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:47:02.360 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:47:02.360 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:47:02.360 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:47:02.640 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:47:02.640 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:47:02.641 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 281ms, status 200
+2026-08-30 16:47:02.642 [http-nio-8080-exec-6-38] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 283ms, 累计 4 次, 上一秒 QPS 0
+2026-08-30 16:49:50.238 [http-nio-8080-exec-9-41] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:49:50.239 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:49:50 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:49:50.239 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:49:50.239 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:49:50.239 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:49:50.242 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:49:50.242 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:49:50.242 [http-nio-8080-exec-9-41] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 3ms, status 200
+2026-08-30 16:49:50.244 [http-nio-8080-exec-9-41] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 6ms, 累计 5 次, 上一秒 QPS 0
+2026-08-30 16:49:51.549 [http-nio-8080-exec-4-36] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:49:51.549 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:49:51 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:49:51.550 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:49:51.550 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:49:51.550 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:49:51.551 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:49:51.551 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:49:51.551 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
+2026-08-30 16:49:51.552 [http-nio-8080-exec-4-36] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 3ms, 累计 6 次, 上一秒 QPS 1
+2026-08-30 16:49:52.488 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:49:52.488 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:49:52 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:49:52.489 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:49:52.489 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:49:52.489 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:49:52.489 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:49:52.489 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:49:52.490 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
+2026-08-30 16:49:52.490 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 2ms, 累计 7 次, 上一秒 QPS 1
+2026-08-30 16:49:53.348 [http-nio-8080-exec-5-37] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:49:53.349 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:49:53 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:49:53.349 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:49:53.349 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:49:53.349 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:49:53.349 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:49:53.349 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:49:53.351 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
+2026-08-30 16:49:53.351 [http-nio-8080-exec-5-37] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 3ms, 累计 8 次, 上一秒 QPS 1
+2026-08-30 16:49:53.590 [http-nio-8080-exec-3-35] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:49:53.591 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:49:53 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:49:53.592 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:49:53.592 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:49:53.592 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:49:53.593 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:49:53.593 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:49:53.593 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
+2026-08-30 16:49:53.594 [http-nio-8080-exec-3-35] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 4ms, 累计 9 次, 上一秒 QPS 1
+2026-08-30 16:49:53.777 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:49:53.778 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:49:53 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:49:53.778 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:49:53.778 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:49:53.778 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:49:53.780 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:49:53.780 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:49:53.780 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
+2026-08-30 16:49:53.780 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 3ms, 累计 10 次, 上一秒 QPS 1
+2026-08-30 16:50:01.890 [http-nio-8080-exec-2-34] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:50:01.891 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:01 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:50:01.891 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:01.891 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:50:01.892 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:50:01.894 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:50:01.894 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:01.894 [http-nio-8080-exec-2-34] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 3ms, status 200
+2026-08-30 16:50:01.895 [http-nio-8080-exec-2-34] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 5ms, 累计 11 次, 上一秒 QPS 0
+2026-08-30 16:50:02.171 [http-nio-8080-exec-6-38] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:50:02.172 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:02 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:50:02.172 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:02.172 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:50:02.172 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:50:02.173 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:50:02.173 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:02.173 [http-nio-8080-exec-6-38] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 1ms, status 200
+2026-08-30 16:50:02.175 [http-nio-8080-exec-6-38] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 4ms, 累计 12 次, 上一秒 QPS 1
+2026-08-30 16:50:02.342 [http-nio-8080-exec-7-39] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:50:02.343 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:02 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:50:02.343 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:02.343 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:50:02.343 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:50:02.345 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:50:02.346 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:02.346 [http-nio-8080-exec-7-39] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 3ms, status 200
+2026-08-30 16:50:02.347 [http-nio-8080-exec-7-39] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 5ms, 累计 13 次, 上一秒 QPS 1
+2026-08-30 16:50:22.077 [http-nio-8080-exec-4-36] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/login.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:50:22.079 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:22 0:0:0:0:0:0:0:1 GET /java-jdbc/login.jsp
+2026-08-30 16:50:22.079 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:22.079 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
+2026-08-30 16:50:22.079 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
+2026-08-30 16:50:22.084 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-30 16:50:22.084 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:22.084 [http-nio-8080-exec-4-36] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 5ms, status 200
+2026-08-30 16:50:22.086 [http-nio-8080-exec-4-36] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/login.jsp 耗时 8ms, 累计 14 次, 上一秒 QPS 0
+2026-08-30 16:50:28.907 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: POST /java-jdbc/login 0:0:0:0:0:0:0:1
+2026-08-30 16:50:28.907 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:28 0:0:0:0:0:0:0:1 POST /java-jdbc/login
+2026-08-30 16:50:28.907 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:28.907 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login
+2026-08-30 16:50:28.907 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login
+2026-08-30 16:50:28.911 [http-nio-8080-exec-1-33] WARN  com.wyy.controller.LoginServlet - LoginServlet 登录校验失败, username: weiyangyang
+2026-08-30 16:50:28.911 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login
+2026-08-30 16:50:28.911 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:28.911 [http-nio-8080-exec-1-33] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 4ms, status 302
+2026-08-30 16:50:28.912 [http-nio-8080-exec-1-33] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: POST /java-jdbc/login 耗时 5ms, 累计 15 次, 上一秒 QPS 0
+2026-08-30 16:50:28.915 [http-nio-8080-exec-5-37] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/login.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:50:28.915 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:28 0:0:0:0:0:0:0:1 GET /java-jdbc/login.jsp
+2026-08-30 16:50:28.915 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:28.915 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login.jsp
+2026-08-30 16:50:28.915 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login.jsp
+2026-08-30 16:50:28.918 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login.jsp
+2026-08-30 16:50:28.920 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:28.920 [http-nio-8080-exec-5-37] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 5ms, status 200
+2026-08-30 16:50:28.921 [http-nio-8080-exec-5-37] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/login.jsp 耗时 6ms, 累计 16 次, 上一秒 QPS 0
+2026-08-30 16:50:34.002 [http-nio-8080-exec-3-35] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: POST /java-jdbc/login 0:0:0:0:0:0:0:1
+2026-08-30 16:50:34.003 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:34 0:0:0:0:0:0:0:1 POST /java-jdbc/login
+2026-08-30 16:50:34.003 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:34.003 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/login
+2026-08-30 16:50:34.003 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, excludePath: /login
+2026-08-30 16:50:34.005 [http-nio-8080-exec-3-35] INFO  com.wyy.controller.LoginServlet - LoginServlet 登录成功, userId: 1, username: weiyangyang
+2026-08-30 16:50:34.005 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, excludePath: /login
+2026-08-30 16:50:34.005 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:34.005 [http-nio-8080-exec-3-35] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 3ms, status 302
+2026-08-30 16:50:34.005 [http-nio-8080-exec-3-35] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: POST /java-jdbc/login 耗时 3ms, 累计 17 次, 上一秒 QPS 0
+2026-08-30 16:50:34.009 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求进入: GET /java-jdbc/index.jsp 0:0:0:0:0:0:0:1
+2026-08-30 16:50:34.009 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.LogFilter - [LogFilter]: before chain: 2026-08-30 16:50:34 0:0:0:0:0:0:0:1 GET /java-jdbc/index.jsp
+2026-08-30 16:50:34.009 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] before chain - encoding set to UTF-8
+2026-08-30 16:50:34.009 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, ContextPath: /java-jdbc, RequestURI: /java-jdbc/index.jsp
+2026-08-30 16:50:34.009 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] before chain, isLoggedIn: true
+2026-08-30 16:50:34.012 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.AuthFilter - [AuthFilter] after chain, isLoggedIn: true
+2026-08-30 16:50:34.012 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] after chain
+2026-08-30 16:50:34.012 [http-nio-8080-exec-10-42] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 3ms, status 200
+2026-08-30 16:50:34.012 [http-nio-8080-exec-10-42] INFO  com.wyy.listener.RequestListener - [RequestListener] 请求结束: GET /java-jdbc/index.jsp 耗时 4ms, 累计 18 次, 上一秒 QPS 0
