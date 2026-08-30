@@ -55,6 +55,13 @@
       <artifactId>fastjson2</artifactId>
       <version>2.0.25</version>
     </dependency>
+
+    <!-- MyBatis 核心 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.16</version>
+    </dependency>
   </dependencies>
   <build>
     <!-- 最终 war 包名称 -->

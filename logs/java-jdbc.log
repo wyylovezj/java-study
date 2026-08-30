@@ -1,6 +1,6 @@
 2026-08-30 11:16:55.917 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2026-08-30 11:16:56.063 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-30 11:16:56.063 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-30 11:16:56.063 [main-1] INFO  com.wyy.utils.JdbcUtils - 获取数据库连接成功
 2026-08-30 11:16:56.088 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
 2026-08-30 11:17:08.657 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2026-08-30 11:17:08.881 [RMI TCP Connection(2)-127.0.0.1-46] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
@@ -22,7 +22,7 @@
 2026-08-30 11:18:03.080 [RMI TCP Connection(4)-127.0.0.1-48] INFO  com.wyy.filter.LogFilter - LogFilter init
 2026-08-30 11:19:37.073 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2026-08-30 11:19:37.197 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-08-30 11:19:37.197 [main-1] INFO  com.wyy.utils.DbUtils - 获取数据库连接成功
+2026-08-30 11:19:37.197 [main-1] INFO  com.wyy.utils.JdbcUtils - 获取数据库连接成功
 2026-08-30 11:19:37.211 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
 2026-08-30 11:19:43.157 [localhost-startStop-2-58] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
 2026-08-30 11:19:43.157 [localhost-startStop-2-58] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
@@ -51,7 +51,7 @@
 2026-08-30 11:19:48.352 [http-nio-8080-exec-4-32] INFO  com.wyy.filter.LogFilter - [LogFilter]: after chain: duration 2ms, status 200
 2026-08-30 11:32:32.472 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 11:32:32.617 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 11:32:32.617 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 11:32:32.617 [main-1] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 11:32:32.631 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10, createdTime=2026-07-02 15:18:24, updatedTime=2026-07-02 15:18:24}
 2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
 2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
@@ -59,11 +59,11 @@
 2026-08-30 14:33:57.305 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter destroy
 2026-08-30 14:34:28.010 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 14:34:28.145 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 14:34:28.145 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 14:34:28.145 [main-1] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 14:34:28.161 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10}
 2026-08-30 14:34:37.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 14:34:38.056 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
 2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
 2026-08-30 14:34:38.057 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
@@ -73,7 +73,7 @@
 2026-08-30 15:24:22.385 [HikariPool-1 housekeeper-51] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m879ms845µs701ns).
 2026-08-30 15:46:48.959 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 15:46:49.131 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 15:46:49.131 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 15:46:49.131 [main-1] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 15:46:49.151 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10}
 2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
 2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
@@ -81,7 +81,7 @@
 2026-08-30 15:46:52.948 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter destroy
 2026-08-30 15:46:53.606 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 15:46:53.831 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
 2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
 2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init
@@ -89,7 +89,7 @@
 2026-08-30 15:46:53.832 [ContainerBackgroundProcessor[StandardEngine[Catalina]]-28] INFO  com.wyy.filter.LogFilter - LogFilter init
 2026-08-30 16:46:40.886 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 16:46:41.075 [main-1] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 16:46:41.075 [main-1] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 16:46:41.075 [main-1] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 16:46:41.093 [main-1] INFO  com.wyy.AppTest - Query result: weekConfig{id=3, year=2026, weekNum=27, startDate=2026-06-30, endDate=2026-07-10}
 2026-08-30 16:46:44.581 [localhost-startStop-3-201] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] destroyed
 2026-08-30 16:46:44.582 [localhost-startStop-3-201] INFO  com.wyy.filter.AuthFilter - [AuthFilter] destroy
@@ -97,7 +97,7 @@
 2026-08-30 16:46:44.582 [localhost-startStop-3-201] INFO  com.wyy.filter.LogFilter - LogFilter destroy
 2026-08-30 16:46:55.232 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Starting...
 2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.zaxxer.hikari.HikariDataSource - rbac-pool - Start completed.
-2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.utils.DbUtils - HikariCP 连接池初始化成功
+2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.utils.JdbcUtils - HikariCP 连接池初始化成功
 2026-08-30 16:46:55.548 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.listener.ServletListener - ServletListener 初始化完成，连接池已就绪
 2026-08-30 16:46:55.552 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.filter.EncodingFilter - [EncodingFilter] init
 2026-08-30 16:46:55.552 [RMI TCP Connection(2)-127.0.0.1-28] INFO  com.wyy.filter.AuthFilter - [AuthFilter] init

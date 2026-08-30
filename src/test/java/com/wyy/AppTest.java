@@ -1,7 +1,7 @@
 package com.wyy;
 
 import com.wyy.entity.WeekConfig;
-import com.wyy.utils.DbUtils;
+import com.wyy.utils.JdbcUtils;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +21,7 @@ public class AppTest {
     public void testQueryWeekConfig() throws Exception {
         String sql = "select * from week_config";
         WeekConfig weekConfig = new WeekConfig();
-        try (Connection conn = DbUtils.getConnection();
+        try (Connection conn = JdbcUtils.getConnection();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
             if (rs.next()) {

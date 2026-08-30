@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isErrorPage="true" session="false" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>

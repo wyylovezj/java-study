@@ -2,7 +2,7 @@ package com.wyy.dao.impl;
 
 import com.wyy.dao.WeekConfigDao;
 import com.wyy.entity.WeekConfig;
-import com.wyy.utils.DbUtils;
+import com.wyy.utils.JdbcUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ public class WeekConfigDaoImpl implements WeekConfigDao {
         // 明确列清单，不使用 SELECT *：避免表结构变更带来的隐式耦合与无效数据传输
         String sql = "select id, year, week_num, start_date, end_date from week_config";
         List<WeekConfig> weekConfigs = new ArrayList<>();
-        try(Connection conn = DbUtils.getConnection();
+        try(Connection conn = JdbcUtils.getConnection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery()) {
             while (rs.next()) {
