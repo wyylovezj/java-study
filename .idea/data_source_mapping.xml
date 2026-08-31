@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/resources/mapper/SysUserMapper.xml" value="283ea0d3-5cc6-4db8-bb60-c37f73568a90" />
+  </component>
+</project>

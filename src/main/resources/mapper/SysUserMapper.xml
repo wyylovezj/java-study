@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ★ namespace = 接口全限定名：MyBatis 靠它把接口方法和 SQL 对应起来 -->
+<mapper namespace="com.wyy.mapper.SysUserMapper">
+
+    <!-- 查询：id 必须等于接口方法名；resultType 指定返回类型（自动映射） -->
+    <select id="findUserAll" resultType="com.wyy.entity.SysUser">
+        SELECT id, username, password FROM sys_user;
+    </select>
+
+    <!-- 查询：id 必须等于接口方法名；resultType 指定返回类型（自动映射） -->
+<!--    <select id="findByUsername" resultType="com.wyy.entity.SysUser">-->
+<!--        SELECT id, username, password FROM sys_user where username = #{username};-->
+<!--    </select>-->
+</mapper>

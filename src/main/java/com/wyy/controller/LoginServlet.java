@@ -42,7 +42,10 @@ public class LoginServlet extends HttpServlet {
             // 校验通过返回用户对象，失败统一返回 null（不区分用户不存在/密码错误，防用户名枚举）
             SysUser user = userService.login(username, password);
             if (user != null) {
-                // 用户对象写入 session，AuthFilter 依赖该属性放行后续请求
+                // 用户对象写入 session，AuthFilter 依赖该属性放行后续请求。
+                // req.getSession() 是全站唯一创建会话的入口（login.jsp/error.jsp 已 session="false"）：
+                // 登录成功才建会话，访客浏览登录页、登录失败重试都不会产生空会话，
+                // 在线人数也就不会被这些 30 分钟后才销毁的会话虚增
                 req.getSession().setAttribute("user", user);
                 logger.info("LoginServlet 登录成功, userId: {}, username: {}", user.getId(), user.getUsername());
                 resp.sendRedirect(req.getContextPath() + "/index.jsp");

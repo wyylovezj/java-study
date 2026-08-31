@@ -13,8 +13,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * 会话监听器
  * 统计两类指标并发布到 ServletContext（application 作用域），JSP/Servlet 可直接读取：
- * 1. onlineCount 在线人数：活跃 session 数，由 sessionCreated/sessionDestroyed 驱动，
- *    包含访问 login.jsp 但尚未登录的访客（JSP 默认会创建 session），属于"近似在线人数"
+ * 1. onlineCount 在线人数：活跃 session 数，由 sessionCreated/sessionDestroyed 驱动。
+ *    会话仅在登录成功时创建（login.jsp/error.jsp 已声明 session="false"，页面渲染不再隐式建会话），
+ *    因此在线人数≈登录人数，不会因访客只浏览登录页或浏览器 IPv4/IPv6 双栈重复导航而虚增
  * 2. loginCount 登录人数：以 session 中是否存在 "user" 属性为准（LoginServlet 登录成功后写入），
  *    通过 HttpSessionAttributeListener 监听该属性的增删，语义上更精确
  * <p>

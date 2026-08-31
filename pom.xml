@@ -55,6 +55,32 @@
       <artifactId>fastjson2</artifactId>
       <version>2.0.25</version>
     </dependency>
+
+    <!-- MyBatis 核心 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.5.16</version>
+    </dependency>
+
+    <!-- Spring 核心容器（含 IoC/DI、AOP 基础） -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>5.3.31</version>
+    </dependency>
+    <!-- AOP 支持（@Aspect 注解需要） -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aspects</artifactId>
+      <version>5.3.31</version>
+    </dependency>
+    <!-- 事务（spring-context 已含，暂不额外加；后面配 JDBC 事务再加 spring-jdbc） -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-jdbc</artifactId>
+      <version>5.3.31</version>
+    </dependency>
   </dependencies>
   <build>
     <!-- 最终 war 包名称 -->

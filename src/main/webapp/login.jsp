@@ -1,4 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" session="false" %>
+<%-- session="false"：登录页不创建会话。JSP 默认 session="true"，渲染即隐式建会话，
+     只逛登录页未登录的访客也会被 SessionListener 计入在线人数（且要占满 30 分钟超时）。
+     另外浏览器访问 localhost 会经 127.0.0.1 与 ::1（IPv6）各发一轮请求，两者 Cookie 互不共享，
+     若页面隐式建会话，一个标签页就会产生多个会话导致在线人数虚增；
+     会话统一改由 LoginServlet 登录成功后创建 --%>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
