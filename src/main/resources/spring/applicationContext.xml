@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!-- 1. 加载外部属性文件，为 ${} 占位符提供值 -->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+
+    <!-- 2. 数据源：HikariCP 直接作为 bean，容器关闭时自动 close（接管 MybatisUtils.close() 的职责） -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="maximumPoolSize" value="20"/>
+        <property name="minimumIdle" value="5"/>
+    </bean>
+
+    <!-- 3. SqlSessionFactory：settings 复用现有 mybatis-config.xml，数据源由 Spring 注入 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+    </bean>
+
+    <!-- 4. Mapper 接口扫描：每个接口自动注册为线程安全的代理 bean（内部是 SqlSessionTemplate） -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.wyy.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 5. 事务管理器（替代原来手动的 session.commit/rollback） -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!-- 6. 声明式事务（纯 XML 的 tx + aop，不用 @Transactional） -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*|find*|list*" read-only="true"/>
+            <tx:method name="*" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <aop:config>
+        <aop:pointcut id="serviceLayer" expression="execution(* com.wyy.service..*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceLayer"/>
+    </aop:config>
+
+    <!-- 7. Service bean：setter 注入 Mapper -->
+    <bean id="userService" class="com.wyy.service.impl.UserServiceImpl">
+        <property name="sysUserMapper" ref="sysUserMapper"/>
+    </bean>
+    <bean id="weekConfigService" class="com.wyy.service.impl.WeekConfigServiceImpl">
+        <property name="weekConfigMapper" ref="weekConfigMapper"/>
+    </bean>
+</beans>

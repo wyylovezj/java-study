@@ -17,6 +17,7 @@ public class WeekConfigServiceImpl implements WeekConfigService {
 
     private static final Logger logger = LoggerFactory.getLogger(WeekConfigServiceImpl.class);
 
+    private WeekConfigMapper weekConfigMapper;
     // 无状态依赖在字段声明处初始化并加 final，实例生命周期内复用，不必每次调用都 new
     //    private final WeekConfigDao weekConfigDao = new WeekConfigDaoImpl();
     //  使用HikariDataSource，但未使用 mybatis
@@ -39,5 +40,10 @@ public class WeekConfigServiceImpl implements WeekConfigService {
             logger.error("WeekConfigServiceImpl listWeekConfigs error", e);
             throw new SQLException("Failed to list week configs", e);
         }
+    }
+
+
+    public void setWeekConfigMapper(WeekConfigMapper weekConfigMapper) {
+        this.weekConfigMapper = weekConfigMapper;
     }
 }

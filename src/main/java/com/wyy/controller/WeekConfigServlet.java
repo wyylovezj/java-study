@@ -6,6 +6,8 @@ import com.wyy.service.WeekConfigService;
 import com.wyy.service.impl.WeekConfigServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,8 +25,15 @@ public class WeekConfigServlet extends HttpServlet {
 
     // 无状态 Service 可作为字段复用，不必每个请求都创建；
     // controller 只依赖 service 接口，不越层触碰 dao 与 JDBC
-    private final WeekConfigService weekConfigService = new WeekConfigServiceImpl();
+    //    private final WeekConfigService weekConfigService = new WeekConfigServiceImpl();
 
+    private WeekConfigService weekConfigService;
+    @Override
+    public void init() throws ServletException {
+        WebApplicationContext ctx =
+                WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+        this.weekConfigService = ctx.getBean(WeekConfigService.class);
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
