@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 切面类注册为普通 Spring bean（POJO，不加 @Aspect 注解） -->
+    <bean id="serviceExceptionAspect" class="com.wyy.aspect.ServiceExceptionAspect"/>
+    <bean id="serviceLogAspect" class="com.wyy.aspect.ServiceLogAspect"/>
+
+    <aop:config>
+        <aop:pointcut id="serviceLayerPointcut" expression="execution(* com.wyy.service..*.*(..))"/>
+
+        <!-- 异常切面放最外层（order 越小越先进入） -->
+        <aop:aspect ref="serviceExceptionAspect" order="1">
+            <aop:around method="handleException" pointcut-ref="serviceLayerPointcut"/>
+        </aop:aspect>
+
+        <!-- 日志切面放内层，先于事务执行 -->
+        <aop:aspect ref="serviceLogAspect" order="2">
+            <aop:around method="logAround" pointcut-ref="serviceLayerPointcut"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

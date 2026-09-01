@@ -36,7 +36,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <!-- 6. 声明式事务（纯 XML 的 tx + aop，不用 @Transactional） -->
+    <!-- 6. 声明式事务（纯 XML 的 tx + aop，不用 @Transactional），使用上面的transactionManager事务管理器 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="get*|find*|list*" read-only="true"/>
@@ -55,4 +55,7 @@
     <bean id="weekConfigService" class="com.wyy.service.impl.WeekConfigServiceImpl">
         <property name="weekConfigMapper" ref="weekConfigMapper"/>
     </bean>
+
+    <!-- 8. AOP 切面配置（Service 层日志、异常统一处理） -->
+    <import resource="aop-context.xml"/>
 </beans>

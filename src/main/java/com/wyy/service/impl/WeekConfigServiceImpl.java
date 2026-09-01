@@ -29,9 +29,11 @@ public class WeekConfigServiceImpl implements WeekConfigService {
     @Override
     public List<WeekConfig> listWeekConfigs() throws SQLException {
 
-        try( SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)) {
-            WeekConfigMapper mapper = session.getMapper(WeekConfigMapper.class);
-            List<WeekConfig> weekConfig = mapper.findWeekConfigAll();
+//        try( SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)) {
+//            WeekConfigMapper mapper = session.getMapper(WeekConfigMapper.class);
+//            List<WeekConfig> weekConfig = mapper.findWeekConfigAll();
+        try {
+            List<WeekConfig> weekConfig = weekConfigMapper.findWeekConfigAll();
             if (weekConfig != null) {
                 return weekConfig;
             }

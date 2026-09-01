@@ -9,7 +9,8 @@
         <!-- 控制台打印 SQL（学习/调试神器） -->
         <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
-
+    <!-- 引入外部属性文件 -->
+<!--    <properties resource="classpath:jdbc.properties"/>-->
     <!-- 环境：一个环境 = 一套数据源 + 事务管理器 -->
 <!--    <environments default="dev">-->
 <!--        <environment id="dev">-->
@@ -18,16 +19,16 @@
 <!--            &lt;!&ndash; 数据源：MyBatis 自带连接池 &ndash;&gt;-->
 <!--            &lt;!&ndash; type 必须是 DataSourceFactory 实现：直接写 HikariDataSource 会 ClassCastException &ndash;&gt;-->
 <!--            <dataSource type="com.wyy.utils.HikariDataSourceFactory">-->
-<!--                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
-<!--                <property name="url" value="jdbc:mysql://localhost:3306/rbac?useSSL=false&amp;serverTimezone=Asia/Shanghai"/>-->
-<!--                <property name="username" value="root"/>-->
-<!--                <property name="password" value="940429"/>-->
+<!--                <property name="driver" value="${jdbc.driver}"/>-->
+<!--                <property name="url" value="${jdbc.url}"/>-->
+<!--                <property name="username" value="${jdbc.username}"/>-->
+<!--                <property name="password" value="${jdbc.password}"/>-->
 <!--                &lt;!&ndash; 连接池参数 &ndash;&gt;-->
-<!--                <property name="maximumPoolSize" value="20"/>-->
-<!--                <property name="minimumIdle" value="5"/>-->
-<!--                <property name="connectionTimeout" value="30000"/>-->
-<!--                <property name="idleTimeout" value="600000"/>-->
-<!--                <property name="maxLifetime" value="1800000"/>-->
+<!--                <property name="maximumPoolSize" value="${pool.poolName}"/>-->
+<!--                <property name="minimumIdle" value="${pool.minimumIdle}"/>-->
+<!--                <property name="connectionTimeout" value="${pool.connectionTimeout}"/>-->
+<!--                <property name="idleTimeout" value="${pool.idleTimeout}"/>-->
+<!--                <property name="maxLifetime" value="${pool.maxLifetime}"/>-->
 <!--            </dataSource>-->
 <!--        </environment>-->
 

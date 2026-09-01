@@ -25,9 +25,10 @@
         <listener-class>com.wyy.listener.SpringContextListener</listener-class>
     </listener>
     <!-- ========== Listener 监听器（声明顺序即注册顺序，ServletListener 必须最先：先就绪连接池） ========== -->
-    <listener>
-        <listener-class>com.wyy.listener.ServletListener</listener-class>
-    </listener>
+    <!--  连接池的生命周期，由 spring 管理  -->
+    <!--    <listener>-->
+    <!--        <listener-class>com.wyy.listener.ServletListener</listener-class>-->
+    <!--    </listener>-->
 
     <!-- ========== 2. SessionListener（会话监听：统计在线人数与登录人数） ========== -->
     <listener>

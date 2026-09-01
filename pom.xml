@@ -94,6 +94,14 @@
       <artifactId>mybatis-spring</artifactId>
       <version>2.0.7</version>
     </dependency>
+
+    <!-- Spring 测试框架集成（JUnit 4 运行器） -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-test</artifactId>
+      <version>5.3.31</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <!-- 最终 war 包名称 -->

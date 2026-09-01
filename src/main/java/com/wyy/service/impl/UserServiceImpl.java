@@ -26,6 +26,10 @@ public class UserServiceImpl implements UserService {
 
     private SysUserMapper sysUserMapper;
 
+    // 依赖注入，Setter 方法注入
+    public void setSysUserMapper(SysUserMapper sysUserMapper) {
+        this.sysUserMapper = sysUserMapper;
+    }
     // 无状态依赖在字段声明处初始化并加 final，实例生命周期内复用，不必每次调用都 new
     //    private final SysUserDao sysUserDao = new SysUserDaoImpl();
 
@@ -40,25 +44,34 @@ public class UserServiceImpl implements UserService {
     //        return user;
     //    }
 
-    // 使用HikariDataSource + mybatis
+    // 使用HikariDataSource + mybatis + spring
+//    @Override
+//    public SysUser login(String username, String password) throws SQLException {
+//
+////        try (SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)){
+////            SysUserMapper mapper = session.getMapper(SysUserMapper.class);
+//        try {
+//            SysUser user = sysUserMapper.findByUsername(username);
+//            // 常量在前：即使数据库 password 列为 NULL 也不会抛 NPE
+//            if (user == null || !password.equals(user.getPassword())) {
+//                return null;
+//            }
+//            return user;
+//        } catch (Exception e) {
+//            logger.error("UserServiceImpl login error", e);
+//            throw new SQLException("UserServiceImpl login error", e);
+//        }
+//    }
+
+    // 使用HikariDataSource + mybatis + Spring + aop + transaction
     @Override
     public SysUser login(String username, String password) throws SQLException {
-
-        try (SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)){
-//            SysUserMapper mapper = session.getMapper(SysUserMapper.class);
-            SysUser user = sysUserMapper.findByUsername(username);
-            // 常量在前：即使数据库 password 列为 NULL 也不会抛 NPE
-            if (user == null || !password.equals(user.getPassword())) {
-                return null;
-            }
-            return user;
-        } catch (Exception e) {
-            logger.error("UserServiceImpl login error", e);
-            throw new SQLException("UserServiceImpl login error", e);
+        SysUser user = sysUserMapper.findByUsername(username);
+        // 常量在前：即使数据库 password 列为 NULL 也不会抛 NPE
+        if (user == null || !password.equals(user.getPassword())) {
+            return null;
         }
+        return user;
     }
 
-    public void setSysUserMapper(SysUserMapper sysUserMapper) {
-        this.sysUserMapper = sysUserMapper;
-    }
 }
