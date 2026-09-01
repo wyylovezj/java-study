@@ -2,12 +2,14 @@ package com.wyy.controller;
 
 import com.alibaba.fastjson2.JSON;
 import com.wyy.entity.WeekConfig;
+import com.wyy.listener.SpringContextListener;
 import com.wyy.service.WeekConfigService;
 import com.wyy.service.impl.WeekConfigServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.context.ApplicationContext;
+//import org.springframework.web.context.WebApplicationContext;
+//import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,8 +32,9 @@ public class WeekConfigServlet extends HttpServlet {
     private WeekConfigService weekConfigService;
     @Override
     public void init() throws ServletException {
-        WebApplicationContext ctx =
-                WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+//        WebApplicationContext ctx =
+//                WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+        ApplicationContext ctx = (ApplicationContext) getServletContext().getAttribute(SpringContextListener.SPRING_CONTEXT_ATTRIBUTE);
         this.weekConfigService = ctx.getBean(WeekConfigService.class);
     }
     @Override

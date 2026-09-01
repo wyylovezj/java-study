@@ -1,12 +1,14 @@
 package com.wyy.controller;
 
 import com.wyy.entity.SysUser;
+import com.wyy.listener.SpringContextListener;
 import com.wyy.service.UserService;
 import com.wyy.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.context.ApplicationContext;
+//import org.springframework.web.context.WebApplicationContext;
+//import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,8 +29,9 @@ public class LoginServlet extends HttpServlet {
     // Servlet 初始化时注入 Service，避免每次请求都创建
     @Override
     public void init() throws ServletException {
-        WebApplicationContext ctx =
-                WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+//        WebApplicationContext ctx =
+//                WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+        ApplicationContext ctx = (ApplicationContext) getServletContext().getAttribute(SpringContextListener.SPRING_CONTEXT_ATTRIBUTE);
         this.userService = ctx.getBean(UserService.class);
     }
 

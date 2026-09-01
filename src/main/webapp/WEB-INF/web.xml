@@ -17,8 +17,12 @@
     <!-- 声明在最前面，保证容器先于其他 Listener/Servlet 就绪 -->
     <!-- 注册 ContextLoaderListener，实现了 ServletContextListener -->
     <!-- ContextLoaderListener.contextInitialized() → 读取上面的 contextConfigLocation → 加载该 XML → 创建根 WebApplicationContext（Spring 容器） → 把它存入 ServletContext 中，其他组件就能拿到它-->
+    <!--    <listener>-->
+    <!--        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
+    <!--    </listener>-->
+    <!-- 自定义的 SpringContextListener，用于在容器启动时初始化 Spring 容器 -->
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+        <listener-class>com.wyy.listener.SpringContextListener</listener-class>
     </listener>
     <!-- ========== Listener 监听器（声明顺序即注册顺序，ServletListener 必须最先：先就绪连接池） ========== -->
     <listener>
