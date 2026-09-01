@@ -24,7 +24,7 @@ public class MybatisUtils {
 
     static {
         // build(InputStream) 内部 finally 会自动关流，但 try-with-resources 显式关闭不依赖版本实现
-        try (InputStream in = Resources.getResourceAsStream("mybatis-config.xml")) {
+        try (InputStream in = Resources.getResourceAsStream("mybatis/mybatis-config.xml")) {
             // ★ 必须赋给静态字段：若像局部变量一样接收，getSqlSessionFactory() 将永远返回 null
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(in);
             logger.info("SqlSessionFactory 初始化成功");
@@ -35,6 +35,7 @@ public class MybatisUtils {
 
     // SqlSessionFactory：全局唯一，应用启动时创建一次（接口本身无 close，无需也无法关闭）
     public static SqlSessionFactory getSqlSessionFactory() {
+
         return sqlSessionFactory;
     }
 
@@ -44,6 +45,7 @@ public class MybatisUtils {
      * SqlSession 不关会长期占住池内连接，这是 MyBatis 最常见的资源泄漏点
      */
     public static SqlSession openSession() {
+
         return sqlSessionFactory.openSession();
     }
 

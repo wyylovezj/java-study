@@ -81,6 +81,19 @@
       <artifactId>spring-jdbc</artifactId>
       <version>5.3.31</version>
     </dependency>
+
+    <!-- ContextLoaderListener / WebApplicationContextUtils 在这个包里（不是 spring-mvc） -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-web</artifactId>
+      <version>5.3.31</version>
+    </dependency>
+    <!-- SqlSessionFactoryBean / MapperScannerConfigurer 在这里 -->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>2.0.7</version>
+    </dependency>
   </dependencies>
   <build>
     <!-- 最终 war 包名称 -->

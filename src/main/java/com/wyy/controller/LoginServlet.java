@@ -5,6 +5,8 @@ import com.wyy.service.UserService;
 import com.wyy.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +22,15 @@ public class LoginServlet extends HttpServlet {
 
     // 无状态 Service 可作为字段复用，不必每个请求都创建；
     // controller 只依赖 service 接口，不越层触碰 dao 与 JDBC
-    private final UserService userService = new UserServiceImpl();
+    private UserService userService = new UserServiceImpl();
+
+    // Servlet 初始化时注入 Service，避免每次请求都创建
+    @Override
+    public void init() throws ServletException {
+        WebApplicationContext ctx =
+                WebApplicationContextUtils.getWebApplicationContext(getServletContext());
+        this.userService = ctx.getBean(UserService.class);
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

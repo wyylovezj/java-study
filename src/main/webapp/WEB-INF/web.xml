@@ -8,7 +8,18 @@
     <!-- 显示名称，没有任何意义 -->
     <display-name>java-jdbc</display-name>
 
-
+    <!-- ========== Spring 与 Web 容器（Tomcat）集成的入口配置 ========== -->
+    <!--  声明 Spring 配置文件的位置，“存放”在 ServletContext 里，等着 Spring 的监听器来读取  -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/applicationContext.xml</param-value>
+    </context-param>
+    <!-- 声明在最前面，保证容器先于其他 Listener/Servlet 就绪 -->
+    <!-- 注册 ContextLoaderListener，实现了 ServletContextListener -->
+    <!-- ContextLoaderListener.contextInitialized() → 读取上面的 contextConfigLocation → 加载该 XML → 创建根 WebApplicationContext（Spring 容器） → 把它存入 ServletContext 中，其他组件就能拿到它-->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
     <!-- ========== Listener 监听器（声明顺序即注册顺序，ServletListener 必须最先：先就绪连接池） ========== -->
     <listener>
         <listener-class>com.wyy.listener.ServletListener</listener-class>
@@ -78,7 +89,7 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
-    <!-- ========== Servlet 映射 ========== -->
+    <!-- ========== Servlet ========== -->
     <!-- 周配置 Servlet -->
         <servlet>
             <servlet-name>WeekConfigServlet</servlet-name>

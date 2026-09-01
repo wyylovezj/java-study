@@ -24,6 +24,8 @@ public class UserServiceImpl implements UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
 
+    private SysUserMapper sysUserMapper;
+
     // 无状态依赖在字段声明处初始化并加 final，实例生命周期内复用，不必每次调用都 new
     //    private final SysUserDao sysUserDao = new SysUserDaoImpl();
 
@@ -43,8 +45,8 @@ public class UserServiceImpl implements UserService {
     public SysUser login(String username, String password) throws SQLException {
 
         try (SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)){
-            SysUserMapper mapper = session.getMapper(SysUserMapper.class);
-            SysUser user = mapper.findByUsername(username);
+//            SysUserMapper mapper = session.getMapper(SysUserMapper.class);
+            SysUser user = sysUserMapper.findByUsername(username);
             // 常量在前：即使数据库 password 列为 NULL 也不会抛 NPE
             if (user == null || !password.equals(user.getPassword())) {
                 return null;
@@ -54,5 +56,9 @@ public class UserServiceImpl implements UserService {
             logger.error("UserServiceImpl login error", e);
             throw new SQLException("UserServiceImpl login error", e);
         }
+    }
+
+    public void setSysUserMapper(SysUserMapper sysUserMapper) {
+        this.sysUserMapper = sysUserMapper;
     }
 }
