@@ -102,6 +102,12 @@
       <version>5.3.31</version>
       <scope>test</scope>
     </dependency>
+    <!-- Spring MVC（含 spring-web、spring-context） -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>5.3.31</version>
+    </dependency>
   </dependencies>
   <build>
     <!-- 最终 war 包名称 -->
