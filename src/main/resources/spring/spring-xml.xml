@@ -57,5 +57,5 @@
     </bean>
 
     <!-- 8. AOP 切面配置（Service 层日志、异常统一处理） -->
-    <import resource="aop-context.xml"/>
+    <import resource="spring-aop-xml.xml"/>
 </beans>

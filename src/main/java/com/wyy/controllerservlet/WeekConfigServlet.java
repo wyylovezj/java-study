@@ -1,10 +1,9 @@
-package com.wyy.controller;
+package com.wyy.controllerservlet;
 
 import com.alibaba.fastjson2.JSON;
 import com.wyy.entity.WeekConfig;
 import com.wyy.listener.SpringContextListener;
 import com.wyy.service.WeekConfigService;
-import com.wyy.service.impl.WeekConfigServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -12,7 +11,6 @@ import org.springframework.context.ApplicationContext;
 //import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

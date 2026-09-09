@@ -15,10 +15,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 /**
- * Spring + JUnit 集成测试：由 Spring 容器加载 applicationContext.xml 并注入 Bean
+ * Spring + JUnit 集成测试：由 Spring 容器加载 spring-xml.xml 并注入 Bean
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:spring/spring-xml.xml")
 public class AppTest {
 
     private static final Logger log = LoggerFactory.getLogger(AppTest.class);

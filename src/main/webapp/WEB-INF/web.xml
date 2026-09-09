@@ -12,20 +12,31 @@
     <!--  声明 Spring 配置文件的位置，“存放”在 ServletContext 里，等着 Spring 的监听器来读取  -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:spring/applicationContext.xml</param-value>
+        <param-value>classpath:spring/spring-xml.xml</param-value>
     </context-param>
-    <!-- 声明在最前面，保证容器先于其他 Listener/Servlet 就绪 -->
+    <!-- 初始化监听器要声明在最前面，保证容器先于其他 Listener/Servlet 就绪 -->
+
+    <!-- ========== 1. Spring项目中官方给的IOC根容器初始化监听器 ========== -->
     <!-- 注册 ContextLoaderListener，实现了 ServletContextListener -->
-    <!-- ContextLoaderListener.contextInitialized() → 读取上面的 contextConfigLocation → 加载该 XML → 创建根 WebApplicationContext（Spring 容器） → 把它存入 ServletContext 中，其他组件就能拿到它-->
-    <!--    <listener>-->
-    <!--        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>-->
-    <!--    </listener>-->
-    <!-- 自定义的 SpringContextListener，用于在容器启动时初始化 Spring 容器 -->
+    <!-- ContextLoaderListener.contextInitialized() → 读取上面的 contextConfigLocation → 加载该 XML →
+        创建根 WebApplicationContext（Spring 容器） → 把它存入 ServletContext 中，其他组件就能拿到它 -->
     <listener>
-        <listener-class>com.wyy.listener.SpringContextListener</listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    <!-- ========== Listener 监听器（声明顺序即注册顺序，ServletListener 必须最先：先就绪连接池） ========== -->
-    <!--  连接池的生命周期，由 spring 管理  -->
+
+    <!-- ========== 2. Spring项目中自定义的IOC根容器初始化监听器 ========== -->
+    <!-- 注册 SpringContextListener，实现了 ServletContextListener -->
+    <!-- SpringContextListener.contextInitialized() → 读取上面的 contextConfigLocation → 加载该 XML →
+        创建根 WebApplicationContext（Spring 容器） → 把它存入 ServletContext 中，其他组件就能拿到它-->
+    <!--    <listener>-->
+    <!--        <listener-class>com.wyy.listener.SpringContextListener</listener-class>-->
+    <!--    </listener>-->
+
+
+    <!-- ========== 3. 纯mybatis/纯连接池项目中自定义的连接池初始化监听器 ========== -->
+    <!-- 注册 ServletListener，实现了 ServletContextListener -->
+    <!-- ServletListener.contextInitialized() → 通过 utils 工具类初始化连接池 -->
+    <!--  若项目接入了Spring，则连接池的生命周期由 Spring 管理，无需手动初始化  -->
     <!--    <listener>-->
     <!--        <listener-class>com.wyy.listener.ServletListener</listener-class>-->
     <!--    </listener>-->
@@ -95,27 +106,47 @@
     </filter-mapping>
 
     <!-- ========== Servlet ========== -->
+    <!-- 1. 传统项目的servlet都在这里注册 -->
+    <!-- 2. Spring项目中，controller层的Servlet都在这里注册，IOC容器管理service层及dao层和第三方的servlet -->
+    <!-- 3. Spring MVC项目中，DispatcherServlet 持有的IOC子容器管理controller层的Servlet，
+            IOC根容器管理service层及dao层和第三方的servlet，这里一般只注册 DispatcherServlet 前端控制器，
+            若是项目中存在不想让Spring框架管理的 Servlet，则也可以在这里注册，要户注册在DispatcherServlet前面 -->
     <!-- 周配置 Servlet -->
-        <servlet>
-            <servlet-name>WeekConfigServlet</servlet-name>
-            <servlet-class>com.wyy.controller.WeekConfigServlet</servlet-class>
-            <load-on-startup>1</load-on-startup>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>WeekConfigServlet</servlet-name>
-            <url-pattern>/getWeekConfig</url-pattern>
-        </servlet-mapping>
+    <!--    <servlet>-->
+    <!--        <servlet-name>WeekConfigServlet</servlet-name>-->
+    <!--        <servlet-class>com.wyy.controllerservlet.WeekConfigServlet</servlet-class>-->
+    <!--        <load-on-startup>1</load-on-startup>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>WeekConfigServlet</servlet-name>-->
+    <!--        <url-pattern>/getWeekConfig</url-pattern>-->
+    <!--    </servlet-mapping>-->
 
 
     <!-- 用户登录 Servlet -->
-        <servlet>
-            <servlet-name>LoginServlet</servlet-name>
-            <servlet-class>com.wyy.controller.LoginServlet</servlet-class>
-        </servlet>
-        <servlet-mapping>
-            <servlet-name>LoginServlet</servlet-name>
-            <url-pattern>/login</url-pattern>
-        </servlet-mapping>
+    <!--    <servlet>-->
+    <!--        <servlet-name>LoginServlet</servlet-name>-->
+    <!--        <servlet-class>com.wyy.controllerservlet.LoginServlet</servlet-class>-->
+    <!--    </servlet>-->
+    <!--    <servlet-mapping>-->
+    <!--        <servlet-name>LoginServlet</servlet-name>-->
+    <!--        <url-pattern>/login</url-pattern>-->
+    <!--    </servlet-mapping>-->
+
+    <!-- ========== Spring MVC 前端控制器（所有动态请求的统一入口） ========== -->
+    <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/spring-mvc-xml.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
     <!-- ========== Session 超时时间（分钟） ========== -->
     <session-config>
@@ -123,9 +154,11 @@
     </session-config>
 
     <!-- ========== 欢迎页面（前端入口） ========== -->
-    <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-    </welcome-file-list>
+    <!-- 1. 传统项目、纯Spring项目、Spring MVC项目MVC配置tomcat容器接管静态资源的欢迎页面配置 -->
+    <!-- 2. Spring MVC项目自己接管静态资源时，这里配置的欢迎页面不生效 -->
+    <!--    <welcome-file-list>-->
+    <!--        <welcome-file>index.jsp</welcome-file>-->
+    <!--    </welcome-file-list>-->
 
     <!-- ========== 错误页配置：404/500/未捕获异常统一跳转友好错误页，不向用户暴露堆栈 ========== -->
     <error-page>

@@ -45,23 +45,23 @@ public class UserServiceImpl implements UserService {
     //    }
 
     // 使用HikariDataSource + mybatis + spring
-//    @Override
-//    public SysUser login(String username, String password) throws SQLException {
-//
-////        try (SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)){
-////            SysUserMapper mapper = session.getMapper(SysUserMapper.class);
-//        try {
-//            SysUser user = sysUserMapper.findByUsername(username);
-//            // 常量在前：即使数据库 password 列为 NULL 也不会抛 NPE
-//            if (user == null || !password.equals(user.getPassword())) {
-//                return null;
-//            }
-//            return user;
-//        } catch (Exception e) {
-//            logger.error("UserServiceImpl login error", e);
-//            throw new SQLException("UserServiceImpl login error", e);
-//        }
-//    }
+    //    @Override
+    //    public SysUser login(String username, String password) throws SQLException {
+    //
+    //        try (SqlSession session = MybatisUtils.getSqlSessionFactory().openSession(true)){
+    //            SysUserMapper mapper = session.getMapper(SysUserMapper.class);
+    //        try {
+    //            SysUser user = sysUserMapper.findByUsername(username);
+    //            // 常量在前：即使数据库 password 列为 NULL 也不会抛 NPE
+    //            if (user == null || !password.equals(user.getPassword())) {
+    //                return null;
+    //            }
+    //            return user;
+    //        } catch (Exception e) {
+    //            logger.error("UserServiceImpl login error", e);
+    //            throw new SQLException("UserServiceImpl login error", e);
+    //        }
+    //    }
 
     // 使用HikariDataSource + mybatis + Spring + aop + transaction
     @Override
