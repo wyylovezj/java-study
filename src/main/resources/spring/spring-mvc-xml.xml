@@ -32,4 +32,18 @@
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- 在 springmvc.xml 中配置 HandlerMapping -->
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+
+    <!-- 定义 Controller Bean：
+         service 定义在根容器(spring-xml.xml)，子容器通过 ref 注入时会委托父容器查找，
+         必须显式声明 property，否则 Controller 中的 service 字段为 null，调用时抛 NPE -->
+    <bean name="/login" class="com.wyy.controllerxml.LoginXmlController">
+        <property name="userService" ref="userService"/>
+    </bean>
+    <bean name="/getWeekConfig" class="com.wyy.controllerxml.WeekConfigXmlController">
+        <property name="weekConfigService" ref="weekConfigService"/>
+    </bean>
+
 </beans>

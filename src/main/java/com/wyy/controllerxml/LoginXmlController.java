@@ -31,11 +31,9 @@ public class LoginXmlController implements Controller {
             String password = request.getParameter("password");
             if (username == null || username.trim().isEmpty() || password == null || password.isEmpty()) {
                 logger.warn("LoginServlet 缺少必要参数, username: {}", username);
-                response.sendRedirect(request.getContextPath() + "/login.jsp?error=empty");
-                return null;
+                return new ModelAndView("redirect:/login.jsp?error=empty");
             }
             logger.info("username: {}, password: {}", username, password);
-            return new ModelAndView("success");
             try {
                 // 校验通过返回用户对象，失败统一返回 null（不区分用户不存在/密码错误，防用户名枚举）
                 SysUser user = userService.login(username, password);
@@ -46,17 +44,24 @@ public class LoginXmlController implements Controller {
                     // 在线人数也就不会被这些 30 分钟后才销毁的会话虚增
                     request.getSession().setAttribute("user", user);
                     logger.info("LoginServlet 登录成功, userId: {}, username: {}", user.getId(), user.getUsername());
-                    response.sendRedirect(request.getContextPath() + "/index.jsp");
+                    logger.info("request.getContextPath: {}", request.getContextPath()); // 打印请求的上下文路径
+                    ModelAndView modelAndView = new ModelAndView("redirect:/index.jsp");
+                    return modelAndView;
                 } else {
                     logger.warn("LoginServlet 登录校验失败, username: {}", username);
-                    response.sendRedirect(request.getContextPath() + "/login.jsp?error=wrong");
+                    ModelAndView modelAndView = new ModelAndView("redirect:/login.jsp");
+                    modelAndView.addObject("error", "wrong");
+                    return modelAndView;
                 }
             } catch (SQLException e) {
                 // 数据库异常：记录完整堆栈后跳转登录页提示系统繁忙，不向用户暴露异常细节
                 logger.error("LoginServlet 登录查询数据库异常, username: {}", username, e);
-                response.sendRedirect(request.getContextPath() + "/login.jsp?error=db");
+                ModelAndView modelAndView = new ModelAndView("redirect:/login.jsp");
+                modelAndView.addObject("error", "db");
+                return modelAndView;
             }
+        } else {
+            return null;
         }
-        return null;
     }
 }
