@@ -6,6 +6,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * @author 魏阳阳
+ * @version 1.0
+ * @class：$CLASSNAME$ ：
+ * @since 2026/09/14
+ */
 public interface UserService {
 
     /**

@@ -6,7 +6,7 @@
            http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <!-- 切面类注册为普通 Spring bean（POJO，不加 @Aspect 注解） -->
+    <!-- 通知类注册为普通 Spring bean（POJO，不加 @Aspect 注解） -->
     <bean id="serviceExceptionAspect" class="com.wyy.aspect.ServiceExceptionAspect"/>
     <bean id="serviceLogAspect" class="com.wyy.aspect.ServiceLogAspect"/>
 

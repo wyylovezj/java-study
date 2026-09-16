@@ -12,16 +12,40 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 
+
+/**
+ * LoginXmlController
+ * @author 张三
+ * @date 2026-09-14 15:20:49
+ * @since 
+ */
 public class LoginXmlController implements Controller {
     private static final Logger logger = LoggerFactory.getLogger(LoginXmlController.class);
 
+
+    /**
+     * 用户服务
+     * 字段说明：
+     *
+     * @see UserService：
+     */
     private UserService userService;
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
 
-    @Override
+/**
+ * 
+ * @author 张三
+ * @date 2026-09-14 15:22
+ * 
+ * @param null
+ * 
+ * @return null
+ * @throws 
+ * @throws null
+ */
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String method = request.getMethod();
         if ("GET".equalsIgnoreCase(method)) {

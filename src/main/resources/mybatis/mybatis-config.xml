@@ -4,14 +4,14 @@
 <configuration>
 
     <!-- 驼峰映射：数据库 user_name 自动映射到属性 userName（★ 强烈建议开启） -->
-    <settings>
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <!-- 控制台打印 SQL（学习/调试神器） -->
-        <setting name="logImpl" value="STDOUT_LOGGING"/>
-    </settings>
-    <!-- 引入外部属性文件 -->
+<!--    <settings>-->
+<!--        <setting name="mapUnderscoreToCamelCase" value="true"/>-->
+<!--        &lt;!&ndash; 控制台打印 SQL（学习/调试神器） &ndash;&gt;-->
+<!--        <setting name="logImpl" value="STDOUT_LOGGING"/>-->
+<!--    </settings>-->
+<!--    &lt;!&ndash; 引入外部属性文件 &ndash;&gt;-->
 <!--    <properties resource="classpath:jdbc.properties"/>-->
-    <!-- 环境：一个环境 = 一套数据源 + 事务管理器 -->
+<!--    &lt;!&ndash; 环境：一个环境 = 一套数据源 + 事务管理器 &ndash;&gt;-->
 <!--    <environments default="dev">-->
 <!--        <environment id="dev">-->
 <!--            &lt;!&ndash; JDBC 事务管理器：commit/rollback 手动控制 &ndash;&gt;-->
@@ -45,7 +45,7 @@
 <!--        </environment>-->
 <!--    </environments>-->
 
-    <!-- 注册 Mapper（resource = classpath 相对路径，即编译后 target/classes 中的位置） -->
+<!--    &lt;!&ndash; 注册 Mapper（resource = classpath 相对路径，即编译后 target/classes 中的位置） &ndash;&gt;-->
 <!--    <mappers>-->
 <!--        <mapper resource="mapper/SysUserMapper.xml"/>-->
 <!--        <mapper resource="mapper/WeekConfigMapper.xml"/>-->
