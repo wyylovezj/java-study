@@ -16,7 +16,7 @@
          AuthFilter 白名单里已放行这些前缀，鉴权行为不变 -->
     <!--    <mvc:default-servlet-handler/>-->
 
-    <!-- 3.1 静态资源由 Spring MVC 自己处理，不再交给容器 DefaultServlet，下面按现有的 css/js/images 目录分别映射 -->
+    <!-- 3.1 静态资源放行：静态资源由 Spring MVC 自己处理，不再交给容器 DefaultServlet，下面按现有的 css/js/images 目录分别映射 -->
     <mvc:resources mapping="/css/**" location="/css/" cache-period="3600"/>
     <mvc:resources mapping="/js/**" location="/js/" cache-period="3600"/>
     <mvc:resources mapping="/images/**" location="/images/" cache-period="3600"/>
@@ -33,8 +33,28 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <!-- 在 springmvc.xml 中配置 HandlerMapping -->
-    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    <!-- 声明拦截器 bean -->
+    <bean id="logInterceptor" class="com.wyy.interceptor.LogInterceptor"/>
+    <!-- 注册 MVC 拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 拦截所有进入 Spring MVC 的请求 -->
+            <mvc:mapping path="/**"/>
+            <!-- 放行登录接口，避免登录请求被拦 -->
+            <mvc:exclude-mapping path="/login"/>
+            <ref bean="logInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+    <!-- ... existing code ... -->
+
+    <!-- 全局异常处理器 bean（MVC 层，纯 XML 注册），实现 HandlerExceptionResolver -->
+    <bean class="com.wyy.resolver.GlobalExceptionHandlerResolver"/>
+
+    <!-- ... existing code ... -->
+    <!-- 在 springmvc.xml 中配置 HandlerMapping，用于将请求映射到 Controller的bean，如将/login请求映射到名为login的bean -->
+    <!--    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />-->
 
     <!-- 定义 Controller Bean：
          service 定义在根容器(spring-xml.xml)，子容器通过 ref 注入时会委托父容器查找，

@@ -45,7 +45,7 @@
 <!--        </environment>-->
 <!--    </environments>-->
 
-<!--    &lt;!&ndash; 注册 Mapper（resource = classpath 相对路径，即编译后 target/classes 中的位置） &ndash;&gt;-->
+    <!-- 注册 Mapper（resource = classpath 相对路径，即编译后 target/classes 中的位置） -->
 <!--    <mappers>-->
 <!--        <mapper resource="mapper/SysUserMapper.xml"/>-->
 <!--        <mapper resource="mapper/WeekConfigMapper.xml"/>-->
