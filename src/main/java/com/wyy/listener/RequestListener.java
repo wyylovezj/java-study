@@ -17,6 +17,21 @@ import java.util.concurrent.atomic.AtomicLong;
  * 线程安全说明：容器以线程池并发回调监听器——
  * - 计数使用 AtomicLong，避免 i++ 的"读-改-写"竞争丢更新；
  * - "过期重置 + 累加"必须原子完成，故对单个槽加锁；锁按 60 个槽分散，竞争可忽略
+ * <p>
+ * 【替代 web.xml 第 50~52 行】
+ * <pre>
+ *   <listener>
+ *       <listener-class>com.wyy.listener.RequestListener</listener-class>
+ *   </listener>
+ * </pre>
+ * 注册方式：由 {@code WebAppInitializer#registerListeners} 调用
+ * {@code servletContext.addListener(RequestListener.class)} 显式注册，
+ * 位置排在 ContextLoaderListener 与 SessionListener 之后，与原 web.xml 声明顺序一致。
+ * <p>
+ * 【不要再加回 @WebListener】一是规范不保证多个注解监听器之间的顺序；
+ * 二是注解发现时机早于 ServletContainerInitializer，会把本监听器排到 Spring 根容器监听器前面；
+ * 三是注解与编程式共存会让本类被注册两次，requestInitialized / requestDestroyed 收到双份，
+ * 请求日志与累计次数直接翻倍。
  */
 public class RequestListener implements ServletRequestListener {
 

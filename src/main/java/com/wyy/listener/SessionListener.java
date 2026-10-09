@@ -22,6 +22,21 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 一个监听器类可以同时实现多个监听器接口，web.xml 注册一次即可收到全部事件；
  * 计数使用 AtomicInteger 而非 int++：多个请求可能并发创建/销毁会话，
  * i++ 是"读-改-写"三步操作，并发下会互相覆盖导致计数偏小
+ * <p>
+ * 【替代 web.xml 第 45~47 行】
+ * <pre>
+ *   <listener>
+ *       <listener-class>com.wyy.listener.SessionListener</listener-class>
+ *   </listener>
+ * </pre>
+ * 注册方式：由 {@code WebAppInitializer#registerListeners} 调用
+ * {@code servletContext.addListener(SessionListener.class)} 显式注册，
+ * 位置排在 ContextLoaderListener 之后，与原 web.xml 声明顺序一致。
+ * <p>
+ * 【不要再加回 @WebListener】两个原因：一是规范不保证多个注解监听器之间的顺序；
+ * 二是注解发现时机早于 ServletContainerInitializer，会把本监听器排到 Spring 根容器监听器前面。
+ * 而且注解与编程式注册共存会让本类被注册两次，会话创建/销毁事件收到双份，
+ * onlineCount / loginCount 会直接翻倍。
  */
 public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener {
 

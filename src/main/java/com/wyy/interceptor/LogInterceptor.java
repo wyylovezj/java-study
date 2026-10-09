@@ -2,6 +2,7 @@ package com.wyy.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -11,7 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * MVC 请求日志拦截器（示范）
  * preHandle → Controller 执行 → postHandle → 视图渲染 → afterCompletion
+ * <p>
+ * 【替代 spring-mvc-xml.xml 第 36~37 行】
+ * <pre>
+ *   <!-- 声明拦截器 bean -->
+ *   <bean id="logInterceptor" class="com.wyy.interceptor.LogInterceptor"/>
+ * </pre>
+ * 加上 {@code @Component} 后由 WebConfig 的 {@code @ComponentScan("com.wyy.interceptor")} 注册；
+ * 注意必须让 MVC 子容器扫到它（而不是根容器），因为它要被
+ * {@code WebConfig#addInterceptors} 注入，拦截器只对进入 DispatcherServlet 的请求生效。
+ * 映射路径（/** 与排除 /login）不在本类注解里，而是写在 addInterceptors 中，
+ * 对应原来的 <mvc:interceptors> / <mvc:mapping> / <mvc:exclude-mapping>。
  */
+@Component
 public class LogInterceptor implements HandlerInterceptor {
 
     private static final Logger logger = LoggerFactory.getLogger(LogInterceptor.class);

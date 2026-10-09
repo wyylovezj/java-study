@@ -1,5 +1,6 @@
 package com.wyy;
 
+import com.wyy.config.RootConfig;
 import com.wyy.entity.SysUser;
 import com.wyy.entity.WeekConfig;
 import com.wyy.service.UserService;
@@ -15,10 +16,17 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 /**
- * Spring + JUnit 集成测试：由 Spring 容器加载 spring-xml.xml 并注入 Bean
+ * Spring + JUnit 集成测试：由 Spring 容器加载配置类并注入 Bean
+ * <p>
+ * 【替代的那行 XML 式写法】
+ * 原为 @ContextConfiguration(locations = "classpath:spring/spring-xml.xml")。
+ * 项目转为纯注解配置后，测试容器改由 {@link RootConfig} 这个 Java 配置类引导（locations → classes）。
+ * 因为 spring-xml.xml 作对照保留且仍可加载，把上面那行换回来依旧能跑，
+ * 两种方式都能验证数据源/MyBatis/事务/切面配置是否正确。
+ * 注意：本测试需要真实 MySQL（rbac 库）才能跑通，因为它直接查库。
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:spring/spring-xml.xml")
+@ContextConfiguration(classes = RootConfig.class)
 public class AppTest {
 
     private static final Logger log = LoggerFactory.getLogger(AppTest.class);

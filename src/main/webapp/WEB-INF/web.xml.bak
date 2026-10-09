@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================================
+  【归档文件，不被任何容器或框架加载】
+  本文件是项目转为纯注解配置之前的原始 web.xml，除本说明注释块外，原内容一字未改，仅作对照保留。
+  文件名后缀 .bak 是有意为之：Tomcat 只读取严格命名为 WEB-INF/web.xml 的部署描述符，
+  改名后它不再加载本文件，因此不会与注解式配置产生重复注册（同名 Servlet/Filter 会被掩盖或报错）。
+
+  各部分对应的注解替代者：
+    <context-param> contextConfigLocation      → com.wyy.config.WebAppInitializer#registerRootContext
+    <listener> ContextLoaderListener           → 同上
+    <listener> SessionListener / RequestListener → WebAppInitializer#registerListeners（按原声明顺序编程式注册）
+    <filter> x4 + <filter-mapping> + <init-param> → WebAppInitializer#registerFilters（保证顺序）
+    <servlet> DispatcherServlet + <init-param>     → WebAppInitializer#registerDispatcherServlet
+    <servlet-mapping> url-pattern="/"               → 同上 registration.addMapping("/")
+    spring-xml.xml    的全部配置                    → com.wyy.config.RootConfig
+    spring-mvc-xml.xml 的全部配置                   → com.wyy.config.WebConfig
+    spring-aop-xml.xml 的全部配置                   → 两个切面类上的 @Aspect + @EnableAspectJAutoProxy
+
+  无注解等价物、因此本次未迁移的两项（详见 WebAppInitializer 注释）：
+    <session-config> session-timeout=30 → Tomcat 默认就是 30 分钟，行为未变
+    <error-page>     404/500/Throwable  → 500/异常已由 ExceptionFilter + GlobalExceptionHandlerResolver 覆盖；
+                                          纯 404（无 handler 命中）不再跳 /error.jsp，回到容器默认错误页
+  ============================================================================
+-->
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee

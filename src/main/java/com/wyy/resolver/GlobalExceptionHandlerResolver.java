@@ -4,6 +4,7 @@ import com.alibaba.fastjson2.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -19,7 +20,21 @@ import java.util.Map;
  * 在 DispatcherServlet 内部、ExceptionFilter 之前拦截 Controller 抛出的异常：
  * 记录完整堆栈日志，按异常类型返回统一 JSON 错误响应，不向用户暴露堆栈/SQL 等内部信息。
  * 返回 null 表示本处理器不处理（如已响应的重定向场景），交由后续 resolver 或冒泡到 ExceptionFilter 兜底。
+ * <p>
+ * 【替代 spring-mvc-xml.xml 第 52~53 行】
+ * <pre>
+ *   <!-- 全局异常处理器 bean（MVC 层，纯 XML 注册），实现 HandlerExceptionResolver -->
+ *   <bean class="com.wyy.resolver.GlobalExceptionHandlerResolver"/>
+ * </pre>
+ * 加上 {@code @Component} 后由 WebConfig 的 {@code @ComponentScan("com.wyy.resolver")} 注册。
+ * <p>
+ * 【两个不能变的约束】
+ * 1. 必须由 MVC 子容器注册（放根容器里 DispatcherServlet 看不到它，不再生效）；
+ * 2. bean 名不能叫 handlerExceptionResolver，否则 DispatcherServlet 会把它当成
+ *    「整个默认解析链」来覆盖导致默认链丢失——默认的组件名 globalExceptionHandlerResolver 是安全的。
+ * 优先级仍由下面实现的 {@code Ordered} 返回 -1 保证，与原 XML 下完全一致。
  */
+@Component
 public class GlobalExceptionHandlerResolver implements HandlerExceptionResolver, Ordered {
 
     private static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandlerResolver.class);
